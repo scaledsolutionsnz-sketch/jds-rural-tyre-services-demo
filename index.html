@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JDs Rural Tyre Services | Mobile Tyres, Tokoroa</title>
+<meta name="description" content="Mobile tyre service for tractors, trucks, utes and farm gear across Tokoroa and South Waikato. Call Jamie and the tyres get sorted where the machine sits.">
+<meta property="og:title" content="JDs Rural Tyre Services | Mobile Tyres, Tokoroa">
+<meta property="og:description" content="On-farm tyre fitting, puncture repairs and rural callouts across Tokoroa and South Waikato.">
+<meta property="og:type" content="website">
+<meta property="og:image" content="img/hero-1.jpg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%23203a2c'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-weight='700' font-size='26' fill='%23dd9a3c' text-anchor='middle'%3EJD%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700;800&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#17251d;
+  --pine:#203a2c;
+  --pine-deep:#16281f;
+  --bone:#f5f3ec;
+  --bone-2:#ece8dc;
+  --amber:#dd9a3c;
+  --amber-deep:#8a5a17;
+  --text:#2a352e;
+  --text-soft:#5c6a60;
+  --text-on-dark:#e9ede8;
+  --soft-on-dark:#b3c0b5;
+  --radius:14px;
+  --shadow:0 14px 40px -18px rgba(23,37,29,.35);
+  --ease:cubic-bezier(.16,1,.3,1);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+img{image-orientation:from-image;max-width:100%}
+body{
+  font-family:'Cabin',sans-serif;
+  color:var(--text);
+  background:var(--bone);
+  line-height:1.7;
+  font-size:16px;
+  overflow-x:hidden;
+}
+::selection{background:var(--amber);color:var(--pine-deep)}
+h1,h2,h3{font-family:'Bitter',serif;color:var(--ink);line-height:1.15}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+/* intro */
+#intro{position:fixed;inset:0;background:var(--pine-deep);z-index:200;display:flex;align-items:center;justify-content:center;transition:opacity .7s var(--ease),visibility .7s}
+#intro.gone{opacity:0;visibility:hidden}
+#intro span{font-family:'Bitter',serif;font-weight:700;font-size:clamp(1.4rem,4vw,2.2rem);color:var(--bone);opacity:0;animation:introUp .8s var(--ease) .15s forwards}
+#intro span em{font-style:normal;color:var(--amber)}
+@keyframes introUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+/* nav */
+header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35s,box-shadow .35s;padding:14px 0}
+header.solid{background:rgba(22,40,31,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(245,243,236,.08)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{font-family:'Bitter',serif;font-weight:700;font-size:1.12rem;color:#fff;letter-spacing:.01em;line-height:1.25}
+.logo b{color:var(--amber);font-weight:800}
+.nav-links{display:flex;align-items:center;gap:28px;list-style:none}
+.nav-links a{color:var(--text-on-dark);font-weight:500;font-size:.95rem;transition:color .2s}
+.nav-links a:hover{color:var(--amber)}
+.phone-pill{display:inline-flex;align-items:center;gap:8px;height:42px;padding:0 18px;border:1px solid rgba(245,243,236,.35);border-radius:999px;color:#fff;font-weight:600;font-size:.92rem;line-height:1;transition:background .25s,border-color .25s}
+.phone-pill:hover{background:var(--amber);border-color:var(--amber);color:var(--pine-deep)}
+.phone-pill svg{flex:none}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px;width:44px;height:44px}
+.burger span{display:block;width:24px;height:2px;background:#fff;margin:5px auto;transition:transform .3s var(--ease),opacity .3s}
+.mobile-menu{display:none;position:fixed;top:0;right:0;bottom:0;width:min(320px,84vw);background:var(--pine-deep);z-index:150;padding:96px 32px 32px;flex-direction:column;gap:6px;transform:translateX(100%);transition:transform .4s var(--ease)}
+.mobile-menu.open{transform:none}
+.mobile-menu a{color:var(--text-on-dark);font-size:1.15rem;font-weight:600;padding:12px 0;border-bottom:1px solid rgba(245,243,236,.1)}
+.mobile-menu .m-call{margin-top:20px;background:var(--amber);color:var(--pine-deep);text-align:center;border-radius:var(--radius);border:0;padding:15px;font-weight:700}
+#menu-close{position:absolute;top:22px;right:22px;background:none;border:0;color:#fff;font-size:1.8rem;cursor:pointer;width:44px;height:44px;line-height:1}
+
+/* hero */
+.hero{position:relative;min-height:100dvh;display:flex;align-items:center;background:var(--pine-deep);overflow:hidden}
+.hero .wrap{width:100%}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transition:opacity 1.6s ease}
+.hero-slide.on{opacity:1}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(22,40,31,.72) 0%,rgba(22,40,31,.5) 45%,rgba(22,40,31,.78) 100%)}
+.hero-inner{position:relative;z-index:2;padding:120px 0 72px;max-width:720px}
+.eyebrow{display:inline-block;font-size:.8rem;letter-spacing:.16em;text-transform:uppercase;color:var(--amber);font-weight:600;margin-bottom:18px}
+.hero h1{font-size:clamp(2.4rem,5.4vw,3.9rem);color:#fff;font-weight:800;margin-bottom:20px;text-wrap:balance}
+.hero p.lede{color:var(--soft-on-dark);font-size:1.12rem;max-width:520px;margin-bottom:32px}
+.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:38px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;padding:16px 28px;border-radius:var(--radius);font-weight:700;font-size:1rem;line-height:1;transition:transform .25s var(--ease),background .25s,box-shadow .25s;min-height:52px}
+.btn:active{transform:scale(.98)}
+.btn-amber{background:var(--amber);color:var(--pine-deep)}
+.btn-amber:hover{background:#e8ab55;transform:translateY(-2px);box-shadow:0 12px 28px -12px rgba(0,0,0,.5)}
+.btn-ghost{border:1px solid rgba(245,243,236,.45);color:#fff}
+.btn-ghost:hover{background:rgba(245,243,236,.12);transform:translateY(-2px)}
+.hero-review{max-width:440px;background:rgba(245,243,236,.09);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(245,243,236,.22);border-radius:var(--radius);padding:18px 22px;min-height:118px}
+.hero-review .stars{color:var(--amber);letter-spacing:2px;font-size:.9rem;margin-bottom:6px}
+.hero-review blockquote{color:var(--text-on-dark);font-size:.98rem;line-height:1.55;transition:opacity .5s}
+.hero-review cite{display:block;font-style:normal;color:var(--soft-on-dark);font-size:.85rem;margin-top:8px}
+.hero-review.fading blockquote,.hero-review.fading cite{opacity:0}
+.anim{opacity:0;transform:translateY(24px);animation:rise .9s var(--ease) forwards}
+@keyframes rise{to{opacity:1;transform:none}}
+.d1{animation-delay:.55s}.d2{animation-delay:.7s}.d3{animation-delay:.85s}.d4{animation-delay:1s}.d5{animation-delay:1.15s}
+
+/* sections */
+section{padding:96px 0}
+.sec-head{max-width:640px;margin-bottom:52px}
+.sec-head h2{font-size:clamp(1.9rem,3.6vw,2.6rem);font-weight:700;margin-bottom:14px}
+.sec-head p{color:var(--text-soft);font-size:1.05rem}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+
+/* services */
+#services{background:var(--bone)}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.svc-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s var(--ease);display:flex;flex-direction:column}
+.svc-card:hover{transform:translateY(-6px);box-shadow:0 24px 50px -20px rgba(23,37,29,.42)}
+.svc-card .ph{aspect-ratio:4/3;overflow:hidden}
+.svc-card .ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease);filter:saturate(.85) contrast(1.05)}
+.svc-card:hover .ph img{transform:scale(1.05)}
+.svc-body{padding:22px 24px 26px;flex:1}
+.svc-label{display:flex;align-items:center;gap:8px;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-deep);font-weight:700;margin-bottom:10px}
+.svc-label svg{flex:none}
+.svc-body h3{font-size:1.22rem;font-weight:700;margin-bottom:8px}
+.svc-body p{color:var(--text-soft);font-size:.95rem;line-height:1.6}
+
+/* about */
+#about{background:var(--bone-2)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center}
+.about-photo{position:relative;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
+.about-photo img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;filter:saturate(.85) contrast(1.05)}
+.corner-tag{position:absolute;left:0;bottom:0;background:var(--pine);color:var(--bone);font-family:'Bitter',serif;font-weight:600;padding:12px 20px;border-radius:0 var(--radius) 0 0;font-size:.9rem}
+.about-copy h2{font-size:clamp(1.9rem,3.4vw,2.5rem);margin-bottom:18px}
+.about-copy p{color:var(--text-soft);margin-bottom:16px}
+.checklist{list-style:none;margin-top:26px;display:grid;gap:14px}
+.checklist li{display:flex;gap:12px;align-items:flex-start;font-weight:600;color:var(--ink)}
+.checklist svg{flex:none;margin-top:3px;color:var(--amber-deep)}
+
+/* crew */
+#crew .crew-card{display:flex;align-items:center;gap:28px;background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:34px 38px;max-width:640px}
+.avatar{flex:none;width:92px;height:92px;border-radius:50%;background:var(--pine);border:3px solid var(--amber);display:flex;align-items:center;justify-content:center;font-family:'Bitter',serif;font-weight:700;font-size:1.7rem;color:var(--bone)}
+.crew-card .role{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--amber-deep);font-weight:700;margin-bottom:4px}
+.crew-card h3{font-size:1.35rem;margin-bottom:6px}
+.crew-card p{color:var(--text-soft);font-size:.96rem}
+
+/* reviews */
+#reviews{background:var(--pine-deep)}
+#reviews .sec-head h2{color:#fff}
+#reviews .sec-head p{color:var(--soft-on-dark)}
+.badge-example{display:inline-block;font-size:.75rem;font-weight:600;letter-spacing:.02em;color:var(--pine-deep);background:var(--bone-2);border-radius:999px;padding:4px 12px;margin-bottom:14px}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:40px}
+.rev-card{background:rgba(245,243,236,.06);border:1px solid rgba(245,243,236,.14);border-radius:var(--radius);padding:26px}
+.rev-card .stars{color:var(--amber);letter-spacing:2px;margin-bottom:12px;font-size:.92rem}
+.rev-card p{color:var(--text-on-dark);font-size:.97rem;line-height:1.6;margin-bottom:16px}
+.rev-card .who{color:var(--soft-on-dark);font-size:.86rem;font-weight:600}
+.rev-actions{display:flex;gap:14px;flex-wrap:wrap}
+
+/* review banner */
+#rev-banner{background:var(--pine);padding:60px 0}
+.banner-row{display:flex;align-items:center;justify-content:space-between;gap:28px;flex-wrap:wrap}
+.banner-row h2{color:#fff;font-size:clamp(1.5rem,2.8vw,2rem)}
+.banner-row p{color:var(--soft-on-dark);margin-top:6px}
+
+/* contact */
+#contact{background:var(--bone)}
+.contact-card{display:grid;grid-template-columns:1fr 1fr;background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);max-width:1120px;margin:0 auto}
+.contact-map{min-height:460px}
+.contact-map iframe{width:100%;height:100%;border:0;display:block}
+.contact-info{padding:44px 46px;display:flex;flex-direction:column;gap:14px}
+.contact-info h2{font-size:1.8rem;margin-bottom:6px}
+.contact-info>p{color:var(--text-soft);margin-bottom:10px}
+.contact-btns{display:grid;gap:12px;margin-bottom:18px}
+.btn-pine{background:var(--pine);color:#fff}
+.btn-pine:hover{background:var(--pine-deep);transform:translateY(-2px)}
+.btn-outline{border:1.5px solid var(--pine);color:var(--pine)}
+.btn-outline:hover{background:var(--pine);color:#fff;transform:translateY(-2px)}
+.info-row{display:flex;gap:14px;align-items:flex-start;font-size:.96rem}
+.info-row svg{flex:none;color:var(--amber-deep);margin-top:3px}
+.info-row b{color:var(--ink)}
+.socials{display:flex;gap:14px;margin-top:10px}
+.socials a{width:44px;height:44px;border-radius:50%;border:1.5px solid var(--pine);display:flex;align-items:center;justify-content:center;color:var(--pine);transition:background .25s,color .25s,transform .25s}
+.socials a:hover{background:var(--pine);color:#fff;transform:translateY(-2px)}
+
+/* footer */
+footer{background:var(--pine-deep);color:var(--soft-on-dark);padding:56px 0 32px}
+.foot-grid{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.foot-grid .logo{font-size:1.15rem}
+.foot-links{display:flex;gap:26px;flex-wrap:wrap;align-items:center}
+.foot-links a{font-size:.92rem;transition:color .2s}
+.foot-links a:hover{color:var(--amber)}
+footer .socials a{border-color:rgba(245,243,236,.35);color:var(--text-on-dark)}
+footer .socials a:hover{background:var(--amber);border-color:var(--amber);color:var(--pine-deep)}
+.foot-base{border-top:1px solid rgba(245,243,236,.12);padding-top:24px;font-size:.85rem;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+  html{scroll-behavior:auto}
+  .anim{opacity:1;transform:none;animation:none}
+  .reveal{opacity:1;transform:none}
+}
+
+@media (max-width:960px){
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .about-grid{grid-template-columns:1fr;gap:36px}
+  .rev-grid{grid-template-columns:1fr;gap:18px}
+  .contact-card{grid-template-columns:1fr}
+  .contact-map{min-height:320px;order:2}
+  .contact-info{order:1}
+}
+@media (max-width:760px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .mobile-menu{display:flex}
+  section{padding:72px 0}
+  .svc-grid{grid-template-columns:1fr}
+  .hero-inner{padding:110px 0 60px}
+  .contact-info{padding:32px 26px}
+  #crew .crew-card{flex-direction:column;text-align:center;align-items:center;padding:30px 24px}
+  .banner-row{flex-direction:column;text-align:center;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div id="intro" aria-hidden="true"><span>JDs <em>Rural Tyre</em> Services</span></div>
+
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="#" class="logo">JDs <b>Rural Tyre</b> Services</a>
+    <ul class="nav-links">
+      <li><a href="#services">Services</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#reviews">Reviews</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><a class="phone-pill" href="tel:+64274612572">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        027 461 2572</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<nav class="mobile-menu" id="mmenu" aria-label="Mobile">
+  <button id="menu-close" aria-label="Close menu">&times;</button>
+  <a href="#services">Services</a>
+  <a href="#about">About</a>
+  <a href="#reviews">Reviews</a>
+  <a href="#contact">Contact</a>
+  <a class="m-call" href="tel:+64274612572">Call 027 461 2572</a>
+</nav>
+
+<section class="hero" id="top">
+  <div class="hero-slide on" style="background-image:url('img/hero-1.jpg')" role="img" aria-label="Close-up of a muddy tractor tyre on a farm"></div>
+  <div class="hero-slide" data-src="img/hero-2.jpg" role="img" aria-label="Tractor working a paddock at sunset"></div>
+  <div class="hero-slide" data-src="img/hero-3.jpg" role="img" aria-label="Dual truck tyres on a gravel yard"></div>
+  <div class="wrap"><div class="hero-inner">
+    <span class="eyebrow anim d1">Tokoroa and South Waikato</span>
+    <h1 class="anim d2">Rural tyres fixed where the machine sits</h1>
+    <p class="lede anim d3">Mobile fitting, puncture repairs and callouts for tractors, trucks and utes. Jamie comes to the farm, the yard or the roadside.</p>
+    <div class="cta-row anim d4">
+      <a class="btn btn-amber" href="tel:+64274612572">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        Call 027 461 2572</a>
+      <a class="btn btn-ghost" href="#contact">Get a quote</a>
+    </div>
+    <div class="hero-review anim d5" id="hero-review">
+      <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+      <blockquote id="hr-quote">Tractor picked up a bolt right in the middle of silage. Sorted in the paddock the same morning.</blockquote>
+      <cite id="hr-name">Pete M, Litchfield</cite>
+    </div>
+  </div></div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>What Jamie sorts</h2>
+      <p>Tyre work for the gear that keeps a farm or fleet moving. Placeholder services shown until we lock in the full list with you.</p>
+    </div>
+    <div class="svc-grid">
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-tractor.jpg" alt="Green tractor parked on a grass paddock" width="1000" height="667" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>On farm</span>
+          <h3>Tractor and ag tyres</h3>
+          <p>Fitting and repairs on tractors, implements and trailers, done at your place so the machine stays where the work is.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-truck.jpg" alt="Tyre technician working on a truck wheel" width="1000" height="667" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 3h15v13H1zM16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>Fleet</span>
+          <h3>Truck and trailer tyres</h3>
+          <p>Commercial tyre changes and repairs for trucks, curtainsiders and stock trailers, at the depot or roadside.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-puncture.jpg" alt="Mechanic tightening wheel nuts with an impact wrench" width="1000" height="667" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>Repairs</span>
+          <h3>Puncture and tube repairs</h3>
+          <p>Plugs, patches and tube swaps that hold. If a casing is past saving, you get told straight before any money changes hands.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-ute.jpg" alt="White ute driving along a dirt farm track" width="1000" height="667" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.9 4.9l3 3M16.1 16.1l3 3M4.9 19.1l3-3M16.1 7.9l3-3"/><circle cx="12" cy="12" r="4"/></svg>Light vehicle</span>
+          <h3>Ute and 4x4 tyres</h3>
+          <p>All-terrains and road tyres for utes, wagons and quads, fitted and balanced without you leaving the farm.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-supply.jpg" alt="Stack of new tyres ready for fitting" width="1000" height="676" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><path d="M3.27 6.96L12 12.01l8.73-5.05M12 22.08V12"/></svg>Supply</span>
+          <h3>Tyre supply and fitting</h3>
+          <p>New and second-hand rubber sourced to suit the job and the budget, then fitted on the spot.</p>
+        </div>
+      </article>
+      <article class="svc-card reveal">
+        <div class="ph"><img src="img/svc-callout.jpg" alt="Rural highway winding through green Waikato hills" width="1000" height="750" loading="lazy"></div>
+        <div class="svc-body">
+          <span class="svc-label"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Callouts</span>
+          <h3>Rural callouts</h3>
+          <p>Flat on the highway, the tanker track or the back block? Ring through and Jamie heads your way with the gear on board.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div class="about-photo reveal">
+      <img src="img/about.jpg" alt="Rolling green hill country in the South Waikato" width="1400" height="933" loading="lazy">
+      <span class="corner-tag">South Waikato, our patch</span>
+    </div>
+    <div class="about-copy reveal">
+      <h2>A tyre truck built for farm country</h2>
+      <p>JDs Rural Tyre Services runs out of Tokoroa on State Highway 1, right in the middle of dairy, forestry and cartage country. The whole outfit is set up mobile, so the tyre shop comes up your driveway instead of your machine limping into town.</p>
+      <p>One call to Jamie gets a straight answer on what it needs, what it costs, and when he can be there.</p>
+      <ul class="checklist">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Locally owned and operated in Tokoroa</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Comes to the farm, the yard or the roadside</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>Price agreed before the wheel comes off</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section id="crew">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Who turns up</h2>
+      <p>No call centre, no job queue. The person you ring is the person who arrives.</p>
+    </div>
+    <div class="crew-card reveal">
+      <div class="avatar" aria-hidden="true">JM</div>
+      <div>
+        <div class="role">Owner / Operator</div>
+        <h3>Jamie Makene</h3>
+        <p>Runs the truck, answers the phone and does the work. Ring, text or email and deal with Jamie direct from first call to finished job.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="reviews">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="badge-example">Example reviews, real ones coming soon</span>
+      <h2>What the district says</h2>
+      <p>Sample reviews written for this demo. Once the Google profile is live, the real ones sit here automatically.</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card reveal">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Tractor picked up a bolt right in the middle of silage. Sorted in the paddock the same morning and we never lost the day."</p>
+        <div class="who">Pete M, Litchfield</div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Blew a trailer tyre loaded with calves near Putaruru. Jamie was there quick, swapped it on the side of the road, fair price."</p>
+        <div class="who">Aroha T, Putaruru</div>
+      </article>
+      <article class="rev-card reveal">
+        <div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p>"Does all the tyres on our utes and the loader now. Turns up when he says he will, which counts for a lot out here."</p>
+        <div class="who">Dave R, Arapuni</div>
+      </article>
+    </div>
+    <div class="rev-actions reveal">
+      <a class="btn btn-amber" href="https://www.google.com/maps/search/?api=1&query=JDs+Rural+Tyre+Services+Tokoroa" target="_blank" rel="noopener">See our Google reviews</a>
+    </div>
+  </div>
+</section>
+
+<section id="rev-banner">
+  <div class="wrap banner-row reveal">
+    <div>
+      <h2>Happy with our work?</h2>
+      <p>A quick Google review helps other farmers find us.</p>
+    </div>
+    <a class="btn btn-amber" href="https://www.google.com/maps/search/?api=1&query=JDs+Rural+Tyre+Services+Tokoroa" target="_blank" rel="noopener">Leave a review</a>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <h2>Get Jamie on the phone</h2>
+      <p>Calls beat messages when a machine is sitting on a flat. Ring first, email if it can wait.</p>
+    </div>
+    <div class="contact-card reveal">
+      <div class="contact-map">
+        <iframe src="https://www.google.com/maps?q=4119%20State%20Highway%201%2C%20Tokoroa%2C%20New%20Zealand&output=embed" loading="lazy" title="Map showing JDs Rural Tyre Services, Tokoroa" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+      <div class="contact-info">
+        <h2>JDs Rural Tyre Services</h2>
+        <p>Mobile service across Tokoroa, Putaruru and the wider South Waikato.</p>
+        <div class="contact-btns">
+          <a class="btn btn-pine" href="tel:+64274612572">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            Call 027 461 2572</a>
+          <a class="btn btn-outline" data-gmail data-user="jdsruraltyers" data-domain="gmail.com" data-su="Tyre%20job%20enquiry" href="#">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+            Email JDs Rural Tyre Services</a>
+        </div>
+        <div class="info-row">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          <span><b>Phone</b><br>027 461 2572</span>
+        </div>
+        <div class="info-row">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><path d="M22 6l-10 7L2 6"/></svg>
+          <span><b>Email</b><br><span data-email-text>email on request</span></span>
+        </div>
+        <div class="info-row">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span><b>Base</b><br>4119 State Highway 1, RD 1, Tokoroa</span>
+        </div>
+        <div class="socials">
+          <a href="https://www.facebook.com/search/top?q=JDs%20Rural%20Tyre%20Services%20Tokoroa" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+          <a href="https://www.instagram.com/explore/search/keyword/?q=JDs%20Rural%20Tyre%20Services" target="_blank" rel="noopener" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 0 0-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.48 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zM19.85 5.59a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="logo">JDs <b>Rural Tyre</b> Services</div>
+        <p style="max-width:300px;font-size:.9rem;margin-top:10px">Mobile tyre service based in Tokoroa, working across the South Waikato.</p>
+      </div>
+      <div class="foot-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#contact">Contact</a>
+        <a href="terms.html">Terms &amp; Conditions</a>
+        <a href="privacy.html">Privacy Policy</a>
+      </div>
+      <div class="socials">
+        <a href="https://www.facebook.com/search/top?q=JDs%20Rural%20Tyre%20Services%20Tokoroa" target="_blank" rel="noopener" aria-label="Facebook">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.07C24 5.41 18.63 0 12 0S0 5.41 0 12.07C0 18.1 4.39 23.09 10.13 24v-8.44H7.08v-3.49h3.05V9.41c0-3.02 1.79-4.7 4.53-4.7 1.31 0 2.68.24 2.68.24v2.97h-1.51c-1.49 0-1.96.93-1.96 1.89v2.26h3.33l-.53 3.49h-2.8V24C19.61 23.09 24 18.1 24 12.07z"/></svg></a>
+        <a href="https://www.instagram.com/explore/search/keyword/?q=JDs%20Rural%20Tyre%20Services" target="_blank" rel="noopener" aria-label="Instagram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.16c3.2 0 3.58.01 4.85.07 1.17.05 1.8.25 2.23.41.56.22.96.48 1.38.9.42.42.68.82.9 1.38.16.42.36 1.06.41 2.23.06 1.27.07 1.65.07 4.85s-.01 3.58-.07 4.85c-.05 1.17-.25 1.8-.41 2.23-.22.56-.48.96-.9 1.38-.42.42-.82.68-1.38.9-.42.16-1.06.36-2.23.41-1.27.06-1.65.07-4.85.07s-3.58-.01-4.85-.07c-1.17-.05-1.8-.25-2.23-.41a3.72 3.72 0 0 1-1.38-.9 3.72 3.72 0 0 1-.9-1.38c-.16-.42-.36-1.06-.41-2.23-.06-1.27-.07-1.65-.07-4.85s.01-3.58.07-4.85c.05-1.17.25-1.8.41-2.23.22-.56.48-.96.9-1.38.42-.42.82-.68 1.38-.9.42-.16 1.06-.36 2.23-.41 1.27-.06 1.65-.07 4.85-.07zM12 0C8.74 0 8.33.01 7.05.07 5.78.13 4.9.33 4.14.63a5.88 5.88 0 0 0-2.13 1.38A5.88 5.88 0 0 0 .63 4.14C.33 4.9.13 5.78.07 7.05.01 8.33 0 8.74 0 12s.01 3.67.07 4.95c.06 1.27.26 2.15.56 2.91.31.8.72 1.48 1.38 2.13a5.88 5.88 0 0 0 2.13 1.38c.76.3 1.64.5 2.91.56C8.33 23.99 8.74 24 12 24s3.67-.01 4.95-.07c1.27-.06 2.15-.26 2.91-.56a5.88 5.88 0 0 0 2.13-1.38 5.88 5.88 0 0 0 1.38-2.13c.3-.76.5-1.64.56-2.91.06-1.28.07-1.69.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.56-2.91a5.88 5.88 0 0 0-1.38-2.13A5.88 5.88 0 0 0 19.86.63c-.76-.3-1.64-.5-2.91-.56C15.67.01 15.26 0 12 0zm0 5.84A6.16 6.16 0 1 0 18.16 12 6.16 6.16 0 0 0 12 5.84zM12 16a4 4 0 1 1 4-4 4 4 0 0 1-4 4zM19.85 5.59a1.44 1.44 0 1 1-2.88 0 1.44 1.44 0 0 1 2.88 0z"/></svg></a>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>&copy; 2026 JDs Rural Tyre Services, Tokoroa</span>
+      <span>Demo site by Scaled Solutions</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // intro overlay
+  var intro = document.getElementById('intro');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ intro.classList.add('gone'); }, reduced ? 0 : 900);
+  });
+  setTimeout(function(){ intro.classList.add('gone'); }, 2500);
+
+  // nav background: observe hero instead of scroll listener
+  var hdr = document.getElementById('hdr');
+  var hero = document.querySelector('.hero');
+  new IntersectionObserver(function(entries){
+    hdr.classList.toggle('solid', entries[0].intersectionRatio < 0.92);
+  }, {threshold:[0.92]}).observe(hero);
+
+  // mobile menu
+  var mmenu = document.getElementById('mmenu');
+  document.getElementById('burger').addEventListener('click', function(){ mmenu.classList.add('open'); });
+  document.getElementById('menu-close').addEventListener('click', function(){ mmenu.classList.remove('open'); });
+  mmenu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mmenu.classList.remove('open'); }); });
+
+  // hero slide rotation (lazy-load slides 2-3)
+  var slides = Array.prototype.slice.call(document.querySelectorAll('.hero-slide'));
+  slides.forEach(function(s){
+    var src = s.getAttribute('data-src');
+    if(src){ var im = new Image(); im.onload = function(){ s.style.backgroundImage = "url('" + src + "')"; }; im.src = src; }
+  });
+  if(!reduced && slides.length > 1){
+    var cur = 0;
+    setInterval(function(){
+      slides[cur].classList.remove('on');
+      cur = (cur + 1) % slides.length;
+      slides[cur].classList.add('on');
+    }, 6000);
+  }
+
+  // rotating hero review quotes (same data as review cards)
+  var quotes = [
+    {q:"Tractor picked up a bolt right in the middle of silage. Sorted in the paddock the same morning.", n:"Pete M, Litchfield"},
+    {q:"Blew a trailer tyre loaded with calves near Putaruru. Jamie swapped it on the side of the road, fair price.", n:"Aroha T, Putaruru"},
+    {q:"Does all the tyres on our utes and the loader now. Turns up when he says he will.", n:"Dave R, Arapuni"}
+  ];
+  var hr = document.getElementById('hero-review'), hq = document.getElementById('hr-quote'), hn = document.getElementById('hr-name');
+  if(!reduced && hr){
+    var qi = 0;
+    setInterval(function(){
+      hr.classList.add('fading');
+      setTimeout(function(){
+        qi = (qi + 1) % quotes.length;
+        hq.textContent = quotes[qi].q;
+        hn.textContent = quotes[qi].n;
+        hr.classList.remove('fading');
+      }, 500);
+    }, 6500);
+  }
+
+  // scroll reveals
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, {threshold:0.12, rootMargin:'0px 0px -40px 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Gmail compose links built from split parts
+  document.querySelectorAll('a[data-gmail]').forEach(function(a){
+    var to = a.getAttribute('data-user') + '@' + a.getAttribute('data-domain');
+    a.href = 'https://mail.google.com/mail/?view=cm&fs=1&to=' + encodeURIComponent(to) + '&su=' + (a.getAttribute('data-su')||'') + '&body=' + (a.getAttribute('data-body')||'');
+    a.target = '_blank'; a.rel = 'noopener';
+  });
+  var et = document.querySelector('[data-email-text]');
+  if(et){ et.textContent = 'jdsruraltyers' + '@' + 'gmail.com'; }
+})();
+</script>
+</body>
+</html>
