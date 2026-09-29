@@ -15,17 +15,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@500;600;700;800&family=Cabin:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ink:#17251d;
-  --pine:#203a2c;
-  --pine-deep:#16281f;
-  --bone:#f5f3ec;
-  --bone-2:#ece8dc;
-  --amber:#dd9a3c;
-  --amber-deep:#8a5a17;
-  --text:#2a352e;
-  --text-soft:#5c6a60;
-  --text-on-dark:#e9ede8;
-  --soft-on-dark:#b3c0b5;
+  --ink:#17191d;
+  --pine:#23272d;
+  --pine-deep:#101216;
+  --bone:#f5f5f1;
+  --bone-2:#e9e9e4;
+  --amber:#f2c230;
+  --amber-deep:#8e6b00;
+  --text:#262a30;
+  --text-soft:#626873;
+  --text-on-dark:#f2f3f5;
+  --soft-on-dark:#b9bec8;
   --radius:14px;
   --shadow:0 14px 40px -18px rgba(23,37,29,.35);
   --ease:cubic-bezier(.16,1,.3,1);
@@ -49,6 +49,7 @@ a{color:inherit;text-decoration:none}
 /* intro */
 #intro{position:fixed;inset:0;background:var(--pine-deep);z-index:200;display:flex;align-items:center;justify-content:center;transition:opacity .7s var(--ease),visibility .7s}
 #intro.gone{opacity:0;visibility:hidden}
+#intro img{width:min(260px,58vw);height:auto;max-height:120px;object-fit:contain;margin-bottom:20px}#intro{flex-direction:column}
 #intro span{font-family:'Bitter',serif;font-weight:700;font-size:clamp(1.4rem,4vw,2.2rem);color:var(--bone);opacity:0;animation:introUp .8s var(--ease) .15s forwards}
 #intro span em{font-style:normal;color:var(--amber)}
 @keyframes introUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
@@ -58,6 +59,7 @@ header{position:fixed;top:0;left:0;right:0;z-index:100;transition:background .35
 header.solid{background:rgba(22,40,31,.92);backdrop-filter:blur(12px);box-shadow:0 1px 0 rgba(245,243,236,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
 .logo{font-family:'Bitter',serif;font-weight:700;font-size:1.12rem;color:#fff;letter-spacing:.01em;line-height:1.25}
+.logo img{display:block;width:150px;height:auto;max-height:58px;object-fit:contain;object-position:left center}.logo b{color:var(--amber);font-weight:800}
 .logo b{color:var(--amber);font-weight:800}
 .nav-links{display:flex;align-items:center;gap:28px;list-style:none}
 .nav-links a{color:var(--text-on-dark);font-weight:500;font-size:.95rem;transition:color .2s}
@@ -219,11 +221,11 @@ footer .socials a:hover{background:var(--amber);border-color:var(--amber);color:
 </head>
 <body>
 
-<div id="intro" aria-hidden="true"><span>JDs <em>Rural Tyre</em> Services</span></div>
+<div id="intro" aria-hidden="true"><img src="img/jds-logo.png" alt="JDs Rural Tyre Services"><span>Rural tyre service, wherever the work is.</span></div>
 
 <header id="hdr">
   <div class="wrap nav">
-    <a href="#" class="logo">JDs <b>Rural Tyre</b> Services</a>
+    <a href="#" class="logo" aria-label="JDs Rural Tyre Services home"><img src="img/jds-logo.png" alt="JDs Rural Tyre Services"></a>
     <ul class="nav-links">
       <li><a href="#services">Services</a></li>
       <li><a href="#about">About</a></li>
@@ -272,7 +274,7 @@ footer .socials a:hover{background:var(--amber);border-color:var(--amber);color:
   <div class="wrap">
     <div class="sec-head reveal">
       <h2>What Jamie sorts</h2>
-      <p>Tyre work for the gear that keeps a farm or fleet moving. Placeholder services shown until we lock in the full list with you.</p>
+      <p>Tyre work for the gear that keeps a farm or fleet moving. On-farm fitting, puncture repairs and tyre supply for the machines that keep South Waikato moving.</p>
     </div>
     <div class="svc-grid">
       <article class="svc-card reveal">
@@ -368,7 +370,7 @@ footer .socials a:hover{background:var(--amber);border-color:var(--amber);color:
     <div class="sec-head reveal">
       <span class="badge-example">Example reviews, real ones coming soon</span>
       <h2>What the district says</h2>
-      <p>Sample reviews written for this demo. Once the Google profile is live, the real ones sit here automatically.</p>
+      <p>Reliable service for farms, fleets and rural drivers across Tokoroa and South Waikato.</p>
     </div>
     <div class="rev-grid">
       <article class="rev-card reveal">
